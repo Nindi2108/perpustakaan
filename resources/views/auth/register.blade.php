@@ -8,13 +8,42 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
-            background: url('/images/bg-books.jpg') no-repeat center center fixed;
+            background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
             background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .card {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        .form-control {
+            border-radius: 10px;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+        .btn-success {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+        }
+        .btn-success:hover {
+            background: linear-gradient(to right, #a8e063, #56ab2f);
+        }
+        .card-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .text-center a {
+            text-decoration: none;
+            color: #1e88e5;
+            font-weight: 500;
+        }
+        .text-center a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -22,8 +51,7 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
     <div class="card p-4" style="width: 100%; max-width: 400px;">
         <div class="card-body">
-            <h3 class="card-title text-center mb-4 text-primary">Register</h3>
-
+            <h3 class="card-title text-center mb-4">Register</h3>
 
             @if (session('error'))
                 <div class="alert alert-danger">
@@ -43,9 +71,8 @@
                     @enderror
                 </div>
 
-
                 <div class="mb-3">
-                    <label for="email" class="form-label"> Email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror"
                            id="email" name="email" value="{{ old('email') }}" required>
                     @error('email')
@@ -54,7 +81,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password </label>
+                    <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror"
                            id="password" name="password" required>
                     @error('password')
